@@ -1,3 +1,27 @@
-* html {
+
+body {
     text-align: center;
+    width: 100%;
+}
+.container {
+    max-width: 640px;
+}
+p.timer {
+    float: right;
+    padding: 6px 12px;
+}
+.btn {
+    background: rebeccapurple;
+    color: white;
+}
+.btn.scores {
+    float: left;
+    background: none;
+    color: rebeccapurple;
+}
+.container {
+    width: auto;
+}
+.start {
+    margin-bottom: 40px;
 }
