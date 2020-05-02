@@ -3,6 +3,12 @@ body {
     text-align: center;
     width: 100%;
 }
+.bold {
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
 .container {
     max-width: 640px;
 }
@@ -10,18 +16,75 @@ p.timer {
     float: right;
     padding: 6px 12px;
 }
-.btn {
-    background: rebeccapurple;
-    color: white;
+.header-bar {
+    width: auto;
 }
-.btn.scores {
+.btn {
+    background: rgb(96, 52, 141);
+    width: auto;
+    color: white;
+
+}
+.btn:hover,
+.btn:active,
+.btn:focus
+{
+    background:  rgb(137, 88, 185);
+    border-color: none;
+    color: white;
+    outline:0;
+}
+.btn:active,
+.btn:focus {
+    box-shadow: 0.5px 0.5px 4px 4px rgba(42, 158, 253, 0.726);
+    }
+
+.scores {
     float: left;
     background: none;
-    color: rebeccapurple;
-}
-.container {
-    width: auto;
+    color: rgb(96, 52, 141);
+    border: none;
+    padding: 6px 12px;
 }
 .start {
     margin-bottom: 40px;
+}
+ul {
+    padding: 0px;
+    float: left;
+}
+.answers{
+    max-width: 210px;
+}
+il.answer {
+    display: block;
+    margin-bottom: 5px;
+}
+.evaluation{
+    margin-top: 20px;
+    border-top-width: 1.5px;
+    border-top-color: rgb(201, 199, 199);
+    border-top-style: solid;
+    text-align: left;
+}
+.end-text{
+    text-align: left;
+}
+.input {
+    float: left;
+}
+#finalSubmit{
+    margin-left: 10px;
+}
+.string-in-history {
+    background-color: rgb(190, 190, 190);
+    min-width: 400px;
+    padding: 6px;
+    text-align: left;
+}
+
+.history-header,
+.score-box,
+.button-box {
+    float: left;
 }

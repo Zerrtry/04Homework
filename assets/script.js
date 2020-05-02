@@ -42,6 +42,8 @@ $(function () {
     let finalHistory = $('#finalHistory');
     let claenBtn = $('#Clean-btn');
 
+    
+
     // TIMER
     
     // Set the date we're counting down to

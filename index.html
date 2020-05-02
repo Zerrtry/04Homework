@@ -11,100 +11,116 @@
     
     <body>
         
-        <div class="row" id="header">
-            <div class="col-sm-6">
-                <button type="button" class="btn scores" id="highscores">View Highscores</button>
-            </div>
-            
-            <div class="col-sm-6">
-                <p class="timer">Time left:&nbsp <span id="time">75 sec.</span></p>
+        <div class="header bar" id="header">
+            <div class="row" >
+                <div class="col-sm-6">
+                    <button class="scores" id="highscores">View Highscores</button>
+                </div>
+                
+                <div class="col-sm-6">
+                    <p class="timer">Time left:&nbsp <span id="time">75 sec.</span></p>
+                </div>
             </div>
         </div>
-        
-        <div class="container">
-            <div class="row justify-content-start" id="start">
 
-                <div class="col-auto start">
-                    <h1 class="start">Coding Quiz Challenge</h1>
-                    <p class="start">Try to answer the following code-related question with in the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds.</p>
-                    <button type="button" class="btn btn-lg start" id="start-btn">Start Quiz</button>
+        <div class="container">
+            
+            <div class="row justify-content start-box" id="start">
+                <div class="row justify-content">
+                    <div class="col-auto">
+                        <h1 class="start">Coding Quiz Challenge</h1>
+                        <h4 class="start">Try to answer the following code-related question with in the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds.</h4>
+                        <button type="button" class="btn btn-lg start" id="start-btn">Start Quiz</button>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="row justify-content-start" id="question-title">    
-                <div class="col-sm-8">
-                    <p>Question</p>
+            
+            <div class="row justify-content quiz-box" id="quiz"> 
+                
+                <div class="row justify-content">    
+                <div class="col-auto">
+                    <h3 class="bold" id="question-title">Question</h3>
+                    </div>
                 </div>
-                <div class="row answers">
-                    <div class="col-sm-8">
+                
+                <div class="row justify-content ">
+                    <div class="col-sm-4 answers">
                         <ul>
-                            <il>
-                                <button type="button" class="question-btn" id="answer-btn1"></button>
+                            <il class="answer">
+                                <button type="button" class="btn" id="answer-btn1">Answer</button>
                             </il>
-                            <il>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <button type="button" class="question-btn" id="answer-btn2"></button>
-                                    </div>
-                                </div>
+                            <il class="answer">
+                                <button type="button" class="btn" id="answer-btn2">Answer</button>
                             </il>
-                            <il>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <button type="button" class="question-btn" id="answer-btn3"></button>
-                                    </div>
-                                </div>
+                            <il class="answer">
+                                <button type="button" class="btn" id="answer-btn3">Answer</button>
                             </il>
-                            <il>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <button type="button" class="question-btn" id="answer-btn4"></button>
-                                    </div>
-                                </div>
+                            <il class="answer">
+                                <button type="button" class="btn" id="answer-btn4">Answer</button>
                             </il>
                         </ul>
                     </div>    
-                </div>    
+                </div>
+               
+                <div class="row justify-content evaluation">
+                    <div class="col-sm-4">
+                        <h4 class="result-title" id="result">Correct/Wrong</h4>
+                    </div>
+                </div>
             </div>
-                </div>
-                <div class="row justify-content-start"> 
-                    <div class="col-sm-8 end" id="end">
-                        <div class="title">
-                            All Done!
-                        </div>
-                        <p>
-                                Your final score is <span id="final"></span>
-                            </p>
-                            <div class="input">
-                                Enter initials: <input type="text" id="finalInput"> <button type="button" class="btn" id="finalSubmit">Submit</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-sm-8 history">
-                            <div class="history-box">
-                                Highscores
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="score-box">
-                                <ul>
-                                    <il class="score-string">
-                                        <span id="finalInputHistory">User:</span>
-                                        <span id="finalHistory">Score:</span>
-                                    </il>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-8" >
-                            <button type="button" class="btn btn-lg" id="Back-btn">Go back</button>
-                            <button type="button" class="btn btn-lg" id="Clean-btn">Clean Highscores</button>
+        
+            <div class="row justify-content input-box" id="end">
+
+                <div class="row justify-content"> 
+                    <div class="col-auto end" >
+                        <div class="end-text">
+                            <h3 class="bold">All Done!</h3>
+                            <h4>Your final score is: &nbsp<span id="final"></span></h4>
                         </div>
                     </div>
                 </div>
-                <div class="col"></div>
-            </div> -->
+
+                <div class="row justify-content"> 
+                    <div class="col-auto end" >
+                        <div class="input">
+                            <h4 ><span class="italic">Enter initials: &nbsp</span><input type="text" id="finalInput"><button type="button" class="btn" id="finalSubmit">Submit</button></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content history box" id="history">
+                
+                <div class="row justify-content">
+                    <div class="col-auto">
+                        <div class="history-header">
+                            <h3 class="bold">Highscores</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content" id="list">
+                    <div class="col-auto">
+                        <div class="score-box">
+                            <ul>
+                                <il>
+                                    <h4 class="string-in-history"><span class="number-in-history">0</span><span class="initials">AA</span><span class="final-in-history">0</span></h4>
+                                </il>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content">
+                    <div class="col-auto">
+                        <div class="button-box">
+                            <button type="button" class="btn" id="Back-btn">Go back</button>
+                            <button type="button" class="btn" id="Clean-btn">Clean Highscores</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
         </div>
         
         <script type ="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
