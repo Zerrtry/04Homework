@@ -3,6 +3,9 @@ body {
     text-align: center;
     width: 100%;
 }
+.container {
+    max-width: 720px;
+}
 .bold {
     font-weight: bold;
 }
