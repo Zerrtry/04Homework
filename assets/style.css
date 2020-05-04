@@ -24,19 +24,17 @@ p.timer {
     width: auto;
     color: white;
 }
-.btn:hover,
-.btn:active,
-.btn:focus
-{
+.btn:hover {
     background:  rgb(137, 88, 185);
     border-color: none;
     color: white;
     outline:0;
 }
+
 .btn:active,
 .btn:focus {
-    box-shadow: 0.5px 0.5px 4px 4px rgba(42, 158, 253, 0.726);
-    }
+    color: white;
+}
 
 .scores {
     float: left;
@@ -58,6 +56,7 @@ ul {
 il.answer {
     display: block;
     margin-bottom: 5px;
+    text-align: left;
 }
 .evaluation{
     margin-top: 20px;
@@ -71,19 +70,19 @@ il.answer {
 }
 .input {
     float: left;
+    text-align: left;
 }
 #finalSubmit{
     margin-left: 10px;
 }
+
 .string-in-history {
     background-color: rgb(190, 190, 190);
-    min-width: 400px;
+    width: 220px;
     padding: 6px;
-    text-align: left;
 }
-
 .history-header,
 .score-box,
 .button-box {
-    float: left;
+    text-align: left;
 }
