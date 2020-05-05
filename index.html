@@ -91,11 +91,18 @@
                 <div class="row justify-content">
                     <div class="col-xs-1"></div> 
                     <div class="col-xs-10" >
-                        <div class="input">
-                            <form>
-                                <h4 ><span class="italic">Enter initials: &nbsp</span><input type="text" id="finalInput"><button type="button" class="btn" id="finalSubmit">Submit</button></h4>
-                            </form>
-                        </div>
+                        <table>
+                            <div class="input-group mb-3" id="#inputGroup">
+                                <span class="italic userinput"><h4>Enter initials: &nbsp</h4></span>
+                                <input type="text" id="finalInput" class="form-control userinput" maxlength="10"
+                                placeholder="User's initials" 
+                                aria-label="User's initials" 
+                                aria-describedby="basic-addon2">
+                                <div class="input-group-append userinput">
+                                    <button class="btn btn-outline-secondary" type="button" id="finalSubmit">Submitt</button>
+                                </div>
+                            </div>
+                        </table>
                     </div>
                     <div class="col-xs-1"></div>
                 </div>
@@ -117,10 +124,8 @@
                     <div class="col-xs-1"></div> 
                     <div class="col-xs-10">
                         <div class="score-box">
-                            <ul>
-                                <il >
-                                    <h4 class="string-in-history"><span class="number-in-history">0</span>&nbsp<span class="initials">AA</span>&nbsp<span class="final-in-history">0</span></h4>
-                                </il>
+                            <ul id="historyList">
+                                
                             </ul>
                         </div>
                     </div>

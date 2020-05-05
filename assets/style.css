@@ -69,9 +69,17 @@ il.answer {
 .end-text{
     text-align: left;
 }
-.input {
+span.userinput {
     float: left;
-    text-align: left;
+}
+
+input.userinput,
+div.userinput {
+    display: inline;
+} 
+
+#finalInput{
+    max-width: 200px;
 }
 #finalSubmit{
     margin-left: 10px;

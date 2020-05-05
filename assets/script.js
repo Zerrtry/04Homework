@@ -1,11 +1,11 @@
-$(function() {
+// START DIV IS VISIBLE ONLY
+$(document).ready(function() {
+    $("#quiz").hide(); 
+    $("#end").hide();
+    $("#history").hide()
+});
 
-    // START DIV IS VISIBLE ONLY
-    $(document).ready(function() {
-        $("#quiz").hide(); 
-        $("#end").hide();
-        $("#history").hide()
-    });
+$(function() {
     
     // QUIZ CONTEXT ARRAY
     var questions = [
@@ -34,10 +34,12 @@ $(function() {
     // TIMER
     // Set the time we're counting down to
     var timeLimit = 75000;
-
-    // = timeLimit-10000;
-   
-    
+    // Store time fines for wrong answers
+    var timeSubstracter = 0;
+    // Checkpoint if need to stop the time before it has gone
+    var stopCoundown = 0;
+    // The rest of the time
+    var seconds = 0;
 
     function timer() {
         
@@ -48,20 +50,18 @@ $(function() {
         function countdown(){
             // Get currently time
             var now = new Date().getTime();
-
             // Find the distance between now and the count down time
-            var distance = runTime - now;
-            
+            var distance = runTime - now - timeSubstracter;
             // Time calculations for seconds
-            var seconds = Math.round(distance/1000);
-            
+            seconds = Math.round(distance/1000);
             // Display the result in the element with id="demo"
             document.getElementById("time").innerHTML = seconds + " sec.";
-            
+            console.log(timeLimit)
             // Stop to count once the time is over
-            if (seconds <= 0) {
-            clearInterval(timeCounter);
-            endOfQuiz();
+            if (seconds <= 0 || stopCoundown == 1) {
+                console.log(stopCoundown);
+                clearInterval(timeCounter);
+                endOfQuiz();
             }; 
         };
     };
@@ -77,7 +77,7 @@ $(function() {
             $("#question-title").html(questions[currentTour].title);
             prepareAnswers (currentTour);
         } else {
-            endOfQuiz()
+            stopCoundown = 1; // run endOfQuiz() through timer()
         };
     };
 
@@ -126,27 +126,28 @@ $(function() {
             console.log("Tour",currentTour)
             answerCorrect();
             quizExecutor(currentTour);
-            
         } else {
             currentTour = currentTour + 1;
             console.log("User wrong");
             console.log("Tour",currentTour);
             answerWrong();
             quizExecutor(currentTour);
-            // timeLimiteCutter();
         };
     };
-
+    
     function answerCorrect() {
         $("#result").html("Correct");
         $("#evaluation").show();
         $("#evaluation").delay(2000).hide(0);
     };
-
+    
     function answerWrong() {
         $("#result").html("Wrong");
         $("#evaluation").show();
         $("#evaluation").delay(2000).hide(0);
+        // Penalty for wrong answer
+        timeSubstracter = timeSubstracter + 10000;
+        console.log("timeSubstracter",timeSubstracter)
     };
 
     // Start Quiz
@@ -157,17 +158,76 @@ $(function() {
         quizExecutor(currentTour);
         timer();
     });
-
-    //End Quiz
-    // function endOfQuiz (){
-    //     document.getElementById("time").innerHTML = " 0 sec."
-    //     clearInterval ();
-    // }
+    
+    //End Quiz 
+    // Change representation from the Quiz screen to the End screen
+    function endOfQuiz(){
+        currentTour=0;
+        $("#quiz").hide();
+        $("#end").show();
+        document.getElementById("final").innerHTML = seconds;          
+    };
+    // Set event handler fo Submitt button
+    $("#finalSubmit").click(function(){
+            saveInitialAndScore();            
+    });
+    // Store user input and create new line in histiry list
+    function saveInitialAndScore(){
+        var userInput = document.getElementById("finalInput").value;
+        console.log(userInput);
+        var lineInHistory = $(`<il><h4 class="string-in-history"><span>${userInput}</span>&nbsp<span>${seconds}</span></h4></il>`);
+        $("#historyList").append(lineInHistory);
+        // cleaningInputgroup();
+        jumpToHistory(); 
+    };
+    function cleaningInputgroup(){ 
+        var cleanInputgroup = $(
+        `<span class="italic userinput"><h4>Enter initials: &nbsp</h4></span>
+        <input type="text" id="finalInput" class="form-control userinput" maxlength="10"
+        placeholder="User's initials" 
+        aria-label="User's initials" 
+        aria-describedby="basic-addon2">
+        <div class="input-group-append userinput">
+            <button class="btn btn-outline-secondary" type="button" id="finalSubmit">Submitt</button>
+        </div>`
+        );
+        $("##inputGroup").html(cleanInputgroup);
+    };
+    // Change representation from the End screen to History screen
+    function jumpToHistory(){
+        $("#end").hide();
+        $("#header").hide();
+        $("#history").show();
+    };
 
     // HISTORY
-    
-    // <button type="button" class ="btn" id="delete-btn">delete</button>
-   
+    // Change representation from the Start screen to Highscore screen
+    $("#highscores").click(function(){
+        $("#header").hide();
+        $("#start").hide();
+        $("#quiz").hide(); 
+        $("#end").hide();
+        $("#history").show()
+    });
+    // Change representationfrom the Highscore screen to Start screen 
+    $("#Back-btn").click(function(){
+        $("#header").show();
+        $("#start").show();
+        $("#quiz").hide(); 
+        $("#end").hide();
+        $("#history").hide();
+    // Set defalt values
+        timeLimit = 75000;
+        timeSubstracter = 0;
+        stopCoundown = 0;
+        seconds = 0;
+        document.getElementById("time").innerHTML = "75 sec."
+    });
+    // Deleting all <il> with records from the history
+    $("#Clean-btn").click(function(){
+        var emptyList = $("");
+        $("#historyList").html(emptyList);
+    });
 });
 
 
