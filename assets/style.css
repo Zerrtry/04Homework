@@ -54,7 +54,7 @@ ul {
 .answers{
     max-width: 210px;
 }
-il.answer {
+li.answer {
     display: block;
     margin-bottom: 5px;
     text-align: left;
@@ -69,7 +69,7 @@ il.answer {
 .end-text{
     text-align: left;
 }
-span.userinput {
+.userinput {
     float: left;
 }
 

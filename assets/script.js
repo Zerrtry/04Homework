@@ -175,7 +175,7 @@ $(function() {
     function saveInitialAndScore(){
         var userInput = document.getElementById("finalInput").value;
         console.log(userInput);
-        var lineInHistory = $(`<il><h4 class="string-in-history"><span>${userInput}</span>&nbsp<span>${seconds}</span></h4></il>`);
+        var lineInHistory = $(`<li><h4 class="string-in-history"><span>${userInput}</span>&nbsp<span>${seconds}</span></h4></li>`);
         $("#historyList").append(lineInHistory);
         // cleaningInputgroup();
         jumpToHistory(); 
@@ -223,7 +223,7 @@ $(function() {
         seconds = 0;
         document.getElementById("time").innerHTML = "75 sec."
     });
-    // Deleting all <il> with records from the history
+    // Deleting all <li> with records from the history
     $("#Clean-btn").click(function(){
         var emptyList = $("");
         $("#historyList").html(emptyList);
