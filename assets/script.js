@@ -1,11 +1,12 @@
-// START DIV IS VISIBLE ONLY
-$(document).ready(function() {
-    $("#quiz").hide(); 
-    $("#end").hide();
-    $("#history").hide()
-});
+// START DIV IS VISIBLE ONLY    
+$("#quiz").hide(); 
+$("#end").hide();
+$("#history").hide()
 
-$(function() {
+$(document).ready(function() {
+
+
+// $(function() {
     
     // QUIZ CONTEXT ARRAY
     var questions = [
